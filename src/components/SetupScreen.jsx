@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useGame } from '../context/GameContext';
 import { Truck, Clock, BarChart, ShieldCheck } from 'lucide-react';
 
-const SetupScreen = () => {
+const SetupScreen = ({ onShowGuide }) => {
     const { dispatch } = useGame();
     const [name, setName] = useState("Broker");
     const [difficulty, setDifficulty] = useState("Normal");
@@ -27,7 +27,11 @@ const SetupScreen = () => {
                         <Truck size={32} />
                     </div>
                     <h1 className="text-3xl font-bold text-slate-900 dark:text-white mb-1">Nexus Logistics</h1>
-                    <p className="text-slate-500 uppercase tracking-widest text-xs font-bold">Freight Brokerage Simulator</p>
+                    <p className="text-slate-500 uppercase tracking-widest text-xs font-bold mb-4">Freight Brokerage Simulator</p>
+
+                    <button onClick={onShowGuide} className="text-blue-600 hover:text-blue-800 text-sm font-bold inline-flex items-center gap-1 bg-blue-50 px-3 py-1 rounded-full border border-blue-100 transition-colors">
+                        <Clock size={14} /> How to Play
+                    </button>
                 </div>
 
                 <div className="space-y-6">
